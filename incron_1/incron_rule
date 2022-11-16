@@ -1,0 +1,2 @@
+/home/*/jobs/ IN_CLOSE_WRITE /root/cron_root.sh $@/$#
+/home/anonymous_user/newuser/ IN_CLOSE_WRITE /root/cron_newuser.sh $#

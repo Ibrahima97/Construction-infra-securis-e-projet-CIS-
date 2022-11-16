@@ -1,0 +1,23 @@
+// un dossier volume_dir doit deja etre present sur la machine
+
+docker volume create --driver local \
+      --opt type=none \
+      --opt device=/home/cisnode/volume_dir \
+      --opt o=bind \
+      volume_name
+
+docker run -t -d \
+  --cpus=1
+  --memory=1G
+  --name basic_instance \
+  --mount source=volume_name,target=/app \
+  ubuntu
+
+docker exec -ti basic_instance sh -c "cd app && touch ah.txt"
+
+//send back output and volume_dir files to master
+
+docker stop basic_instance
+docker rm basic_instance
+
+docker volume rm volume_name

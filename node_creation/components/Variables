@@ -1,0 +1,21 @@
+###Variables
+
+#not used
+DOCKERFILE_PATH=""
+DOCKERFILE=""
+
+#used
+DNAME="components"
+BASE="$( cd "$(dirname "$0")" ; pwd -P )"
+D=$BASE"/"$DNAME
+
+PKG_LIST="docker-ce "
+PVT_KEYFILE="chiave"
+PUB_KEYFILE="chiave.pub"
+#username must be changed also in conf.sh
+USERNAME="cisnode"
+SSH_DIR="/home/$USERNAME/.ssh"
+JOBS_DIRECTORY=/home/$USERNAME/JOBS/
+JOB_LAUNCHER="launch_docker_job.sh"
+MASTER_IP_FILE="master"
+MY_IP=$($D/get_ip.sh)
